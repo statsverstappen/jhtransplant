@@ -22,6 +22,8 @@ SRC_DIR = os.path.dirname(HERE)          # parent folder holds the .docx files
 OUT = HERE                                # write pages next to this script
 
 SRC_GUIDE = os.path.join(SRC_DIR, "atss_guidelines_aptos.docx")
+# App/home-screen icon source (regenerated into icon-192/512.png each rebuild if present)
+LOGO_SRC = os.path.join(SRC_DIR, "liver_navy_final.png")
 
 GUIDE_TITLE   = ("Guide to the Transplant Surgery Service", "Resident Guide", "Updated July 2026")
 READING_TITLE = ("Transplant Surgery Rotation — Encouraged Reading List", "Reading List",
@@ -269,7 +271,17 @@ def reading_page(titles):
     return page(title, short, body)
 
 def make_icons():
-    from PIL import Image, ImageDraw
+    from PIL import Image
+    # Preferred: derive icons from the liver logo in the source folder.
+    if os.path.exists(LOGO_SRC):
+        src = Image.open(LOGO_SRC).convert("RGB")
+        w, h = src.size; s = min(w, h)                 # center-crop to square
+        src = src.crop(((w-s)//2, (h-s)//2, (w-s)//2+s, (h-s)//2+s))
+        for sz in (192, 512):
+            src.resize((sz, sz), Image.LANCZOS).save(os.path.join(OUT, f"icon-{sz}.png"))
+        return
+    # Fallback: simple drawn cross (only if no logo source is present).
+    from PIL import ImageDraw
     for sz in (192, 512):
         img = Image.new("RGB", (sz, sz), "#0d6e6e"); d = ImageDraw.Draw(img)
         m = int(sz*0.16); d.ellipse([m, m, sz-m, sz-m], fill="#0a5252")
@@ -322,7 +334,8 @@ self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(res=>{const c=res.clone();caches.open(CACHE).then(x=>x.put(e.request,c)).catch(()=>{});return res;}).catch(()=>caches.match(e.request).then(r=>r||caches.match('index.html'))));});
 """ % ver)
 
-    if not os.path.exists(os.path.join(OUT, "icon-192.png")):
+    # Regenerate icons every run when a logo source exists; otherwise only if missing.
+    if os.path.exists(LOGO_SRC) or not os.path.exists(os.path.join(OUT, "icon-192.png")):
         make_icons()
 
     print("Rebuilt site in", OUT)

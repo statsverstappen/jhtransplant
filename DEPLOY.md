@@ -21,7 +21,7 @@ All files live in the `transplant-site` folder. They use **relative paths**, so 
 |---|---|
 | `index.html` | Landing page / menu (set this as the home-screen link) |
 | `guide.html` | Resident Guide |
-| `protocols.html` | Inpatient Postop Protocols |
+| `reading.html` | Encouraged Reading List |
 | `manifest.webmanifest` | App name, icon, standalone mode |
 | `sw.js` | Service worker — offline caching |
 | `icon-192.png`, `icon-512.png` | Home-screen icon |

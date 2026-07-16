@@ -29,3 +29,4 @@ All files live in the `transplant-site` folder. They use **relative paths**, so 
 ## Updating content later
 
 Re-upload the changed HTML file. Because the service worker caches, bump the version in `sw.js` (change `tx-ref-v1` to `tx-ref-v2`) whenever you update content, so devices fetch the new version.
+

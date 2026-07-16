@@ -124,13 +124,13 @@ def next_sw_version():
 
 # ---------------------------------------------------------------- assets
 CSS = r"""
-:root{--bg:#f4f6f8;--card:#fff;--ink:#1a2530;--muted:#5b6b7a;--accent:#0d6e6e;
---accent-dark:#0a5252;--line:#e2e8ee;--local:#b45309;--local-bg:#fef3e2;
+:root{--bg:#f4f6f8;--card:#fff;--ink:#1a2530;--muted:#5b6b7a;--accent:#1e4d8c;
+--accent-dark:#18263a;--line:#e2e8ee;--local:#b45309;--local-bg:#fef3e2;
 --center:#1d4ed8;--center-bg:#eaf0ff;--maxw:820px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Aptos",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-text-size-adjust:100%}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-.topbar{position:sticky;top:0;z-index:50;background:var(--accent);color:#fff;padding:env(safe-area-inset-top) 0 0 0}
+.topbar{position:sticky;top:0;z-index:50;background:var(--accent-dark);color:#fff;padding:env(safe-area-inset-top) 0 0 0}
 .topbar-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:52px}
 .topbar a{color:#fff;font-weight:600}.topbar .home{font-size:20px;line-height:1}
 .topbar h1{font-size:16px;margin:0;font-weight:600;flex:1}
@@ -159,7 +159,7 @@ mark.center{background:var(--center-bg);color:var(--center);padding:1px 4px;bord
 .hero h1{font-size:24px;margin:6px 0 4px}.hero p{color:var(--muted);margin:0}
 .menu{display:grid;gap:14px;margin-top:8px}
 .menu a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,40,60,.05);color:var(--ink)}
-.menu a:hover{border-color:var(--accent);box-shadow:0 3px 10px rgba(13,110,110,.10)}
+.menu a:hover{border-color:var(--accent);box-shadow:0 3px 10px rgba(30,77,140,.16)}
 .menu .m-title{font-size:17px;font-weight:600;color:var(--accent-dark);display:flex;align-items:center;gap:10px}
 .menu .m-desc{color:var(--muted);font-size:14px;margin-top:5px}.menu .arrow{margin-left:auto;color:var(--accent)}
 .legend{font-size:12.5px;color:var(--muted);margin-top:20px;line-height:1.8}
@@ -220,7 +220,7 @@ def page(title, short_title, body, is_home=False):
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0d6e6e">
+<meta name="theme-color" content="#18263a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Transplant">
@@ -292,7 +292,14 @@ def make_icons():
 
 # ---------------------------------------------------------------- build
 def main():
-    guide_c, guide_toc = process_content(docx_to_html(SRC_GUIDE))
+    guide_raw = docx_to_html(SRC_GUIDE)
+    # Drop everything before the first heading: the docx title, the "Updated ..." line,
+    # and the Word Table-of-Contents field (mammoth renders it as a duplicate link list).
+    # The site supplies its own title/updated line and auto-builds its own Contents.
+    _h1 = guide_raw.find("<h1")
+    if _h1 > 0:
+        guide_raw = guide_raw[_h1:]
+    guide_c, guide_toc = process_content(guide_raw)
 
     open(os.path.join(OUT, "guide.html"), "w").write(doc_page(GUIDE_TITLE, guide_c, guide_toc))
     open(os.path.join(OUT, "reading.html"), "w").write(reading_page(READING_TITLE))
@@ -317,8 +324,8 @@ def main():
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f4f6f8",
-  "theme_color": "#0d6e6e",
+  "background_color": "#18263a",
+  "theme_color": "#18263a",
   "icons": [
     {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
     {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}

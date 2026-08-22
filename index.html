@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-title" content="Transplant">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>Transplant Surgery — Resident Reference</title>
+<title>Transplant Surgery Resident Reference</title>
 <style>
 :root{--bg:#f4f6f8;--card:#fff;--ink:#1a2530;--muted:#5b6b7a;--accent:#1e4d8c;
 --accent-dark:#18263a;--line:#e2e8ee;--local:#b45309;--local-bg:#fef3e2;
@@ -59,6 +59,25 @@ mark.center{background:var(--center-bg);color:var(--center);padding:1px 4px;bord
 .search #qinfo{color:var(--muted);font-size:12.5px;min-width:46px;text-align:right;font-variant-numeric:tabular-nums}
 mark.hit{background:#fde68a;color:inherit;border-radius:3px;padding:0 1px}
 mark.hit.cur{background:#f59e0b;color:#1a2530}
+.dirsub{margin:14px 0 2px;font-size:13px;font-weight:600;color:var(--accent-dark);text-transform:uppercase;letter-spacing:.03em}
+.dir{margin:8px 0 4px;padding:0}
+.dir dt{font-size:14px;color:var(--ink);padding:9px 0 0;font-weight:500}
+.dir dd{margin:0 0 9px;padding:0 0 9px;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.dir dd a{font-weight:600;white-space:nowrap}
+.doc .dir dd:last-child{border-bottom:none}
+.ck{list-style:none;margin:10px 0 4px;padding:0}
+.ck li{margin:0;border-bottom:1px solid var(--line)}
+.ck li:last-child{border-bottom:none}
+.ck label{display:flex;gap:11px;align-items:flex-start;padding:11px 4px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ck input{flex:none;width:21px;height:21px;margin:1px 0 0;accent-color:var(--accent)}
+.ck span{flex:1}
+.ck input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.doc h1.ckhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ckcount{font-size:12.5px;font-weight:600;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-variant-numeric:tabular-nums}
+.ckcount.done{color:#0f7b3f;border-color:#bfe3cd;background:#eefaf2}
+.ckreset{font-size:12px;border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:8px;padding:3px 10px;cursor:pointer;font-family:inherit}
+.ckreset:active{background:var(--line)}
+.cknote{font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 13px;margin:0 0 14px}
 .readlist h2{font-size:16px;margin:22px 0 8px;color:var(--accent-dark);border-top:2px solid var(--line);padding-top:14px}
 .readlist h2:first-of-type{border-top:none;padding-top:0}
 .readlist .ref{margin:0 0 14px}
@@ -78,7 +97,7 @@ mark.hit.cur{background:#f59e0b;color:#1a2530}
 <a href="reading.html"><div class="m-title">Encouraged Reading List <span class="arrow">›</span></div>
 <div class="m-desc">Landmark studies and current-practice papers across liver, kidney, HCV, immunosuppression, and donation.</div></a>
 </nav>
-<p class="footer">Add to Home Screen for quick access. Reference use only — confirm against institutional protocol and attending orders.</p></div>
+<p class="footer">Add to Home Screen for quick access. Reference use only; confirm against institutional protocol and attending orders.</p></div>
 <button class="backtop" aria-label="Back to top">↑</button>
 <script>
 (function(){var root=document.querySelector('.doc')||document.body;

@@ -529,7 +529,9 @@ def main():
         guide_raw = guide_raw[_h1:]
     guide_c, guide_toc = process_content(guide_raw)
 
-    open(os.path.join(OUT, "guide.html"), "w").write(doc_page(GUIDE_TITLE, guide_c, guide_toc))
+    # footer=False: Jonathan removed the "confirm against institutional protocol"
+    # footnote from the guide page (2026-08-22).
+    open(os.path.join(OUT, "guide.html"), "w").write(doc_page(GUIDE_TITLE, guide_c, guide_toc, footer=False))
     open(os.path.join(OUT, "reading.html"), "w").write(reading_page(READING_TITLE))
 
     n_ck = 0

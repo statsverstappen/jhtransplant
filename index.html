@@ -122,15 +122,25 @@ body.sched-page .topbar-inner{max-width:1180px}
 .drow:first-of-type{border-top:none}
 .drow .dlab{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
 .drow .dval{font-size:14px}
-.drow .a{font-weight:600;color:var(--ink)}
-.drow .f{color:var(--ink)}
+.drow .a,.ometa .a{font-weight:600;color:var(--ink)}
+.drow .f,.ometa .f{color:var(--ink)}
 .drow .r{color:var(--muted)}
-.drow .sep{color:#5b6e88;padding:0 4px}
+.drow .sep,.ometa .sep{color:#5b6e88;padding:0 4px}
 .drow.l .dlab{color:#a9d69a}
 .drow.kp .dlab{color:#e0d47c}
 .drow.d .dlab{color:#c3ccd6}
 .drow.bk .dlab{color:#eebd97}
 .drow.nt .dlab{color:#b5c2d4}
+.ogrid{display:grid;gap:10px}
+@media (min-width:700px){.ogrid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));align-items:start}}
+@media (min-width:1000px){.ogrid{grid-template-columns:repeat(5,1fr)}}
+.mmcard{margin-bottom:0}
+.ocase{padding:7px 0;border-top:1px solid var(--line)}
+.ocase:first-of-type{border-top:none;padding-top:0}
+.dcard .ocase:first-of-type{padding-top:0}
+.oname{display:block;font-size:14px;font-weight:600;color:var(--ink);line-height:1.4}
+.ometa{display:block;font-size:13px;margin-top:1px;line-height:1.4}
+.onone{margin:0;font-size:13.5px;color:var(--muted)}
 @media (max-width:999px){
  body.sched-page .wrap{padding:12px}
  body.sched-page .card{padding:16px 14px}

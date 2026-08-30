@@ -85,19 +85,45 @@ mark.hit.cur{background:#f0b429;color:#1a2530}
 .readlist .cite{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
 .readlist .flag{color:var(--local);font-weight:700}
 .readlist .note{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;font-style:italic}
+.schedweek{margin:0 0 12px;font-size:18px;color:var(--heading)}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.sched{border-collapse:separate;border-spacing:0;font-size:13px;min-width:840px}
+.sched th,.sched td{border:1px solid var(--line);border-width:0 1px 1px 0;padding:7px 9px;text-align:left;vertical-align:top;white-space:nowrap}
+.sched thead tr:first-child th{border-top:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.sched thead th{background:#233450;color:var(--heading);font-weight:600}
+.sched thead th.g-l{background:#24391c;color:#a9d69a}
+.sched thead th.g-kp{background:#3a3412;color:#e0d47c}
+.sched thead th.g-d{background:#2a323c;color:#c3ccd6}
+.sched thead th.g-bk{background:#3b2917;color:#eebd97}
+.sched thead th.g-nt{background:#262e3c;color:#b5c2d4}
+.sched td.c-l{background:rgba(149,202,130,.09)}
+.sched td.c-kp{background:rgba(240,218,55,.07)}
+.sched td.c-d{background:rgba(231,234,236,.05)}
+.sched td.c-bk{background:rgba(246,199,173,.08)}
+.sched td.c-nt{background:rgba(232,232,232,.05)}
+.sched .day{position:sticky;left:0;z-index:2;background:var(--card);font-weight:600;border-left:1px solid var(--line)}
+.sched tbody th.day span{display:block;font-weight:400;font-size:11.5px;color:var(--muted)}
+.sched tr.today td,.sched tr.today th{border-top:2px solid var(--accent);border-bottom:2px solid var(--accent)}
+.sched tr.today th.day{color:var(--accent)}
+.schedhead{margin:0 0 8px;font-size:17px;color:var(--heading)}
+.ordow{margin:12px 0 2px;font-weight:600;color:var(--heading);font-size:14px}
+.schedcase{margin:2px 0;font-size:14px}
+.schedcase.none{color:var(--muted)}
 @media(min-width:720px){.doc h1{font-size:26px}.hero h1{font-size:28px}}
 </style></head><body>
 <header class="topbar"><div class="topbar-inner"><h1>Transplant Surgery</h1></div></header>
 <div class="wrap">
 <div class="hero"><img class="logo" src="icon-192.png" alt="">
-<h1>Transplant Surgery</h1><p>Resident reference &middot; inpatient service</p></div>
+<h1>Transplant Surgery</h1></div>
 <nav class="menu">
 <a href="guide.html"><div class="m-title">Resident Guide <span class="arrow">›</span></div>
 <div class="m-desc">Service structure, resident responsibilities, consults, consents, kidney &amp; liver admission checklists, drains &amp; procurements.</div></a>
+<a href="schedule.html"><div class="m-title">This Week's Schedule <span class="arrow">›</span></div>
+<div class="m-desc">Weekly coverage table, M&amp;M, and elective OR cases, from the weekly schedule email.</div></a>
 <a href="reading.html"><div class="m-title">Encouraged Reading List <span class="arrow">›</span></div>
 <div class="m-desc">Landmark studies and current-practice papers across liver, kidney, HCV, immunosuppression, and donation.</div></a>
 </nav>
-<p class="footer">Add to Home Screen for quick access. Reference use only; confirm against institutional protocol and attending orders.</p></div>
+</div>
 <button class="backtop" aria-label="Back to top">↑</button>
 <script>
 (function(){var root=document.querySelector('.doc')||document.body;

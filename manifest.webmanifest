@@ -1,7 +1,7 @@
 {
   "name": "Transplant Surgery Reference",
   "short_name": "Transplant",
-  "description": "Resident guide and encouraged reading list",
+  "description": "Resident guide, weekly coverage schedule, and encouraged reading list",
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",

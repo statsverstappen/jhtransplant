@@ -87,8 +87,9 @@ mark.hit.cur{background:#f0b429;color:#1a2530}
 .readlist .note{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;font-style:italic}
 .schedweek{margin:0 0 12px;font-size:18px;color:var(--heading)}
 .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.sched{border-collapse:separate;border-spacing:0;font-size:13px;min-width:840px}
-.sched th,.sched td{border:1px solid var(--line);border-width:0 1px 1px 0;padding:7px 9px;text-align:left;vertical-align:top;white-space:nowrap}
+.sched{border-collapse:separate;border-spacing:0;font-size:12.5px;line-height:1.35;width:100%}
+.sched th,.sched td{border:1px solid var(--line);border-width:0 1px 1px 0;padding:6px 8px;text-align:left;vertical-align:top;white-space:normal;overflow-wrap:normal}
+.sched .day{white-space:nowrap}
 .sched thead tr:first-child th{border-top:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
 .sched thead th{background:#233450;color:var(--heading);font-weight:600}
 .sched thead th.g-l{background:#24391c;color:#a9d69a}
@@ -106,6 +107,40 @@ mark.hit.cur{background:#f0b429;color:#1a2530}
 .sched tr.today td,.sched tr.today th{border-top:2px solid var(--accent);border-bottom:2px solid var(--accent)}
 .sched tr.today th.day{color:var(--accent)}
 .schedhead{margin:0 0 8px;font-size:17px;color:var(--heading)}
+.wrap.wide{max-width:1180px}
+body.sched-page .topbar-inner{max-width:1180px}
+.schedlegend{margin:0 0 12px;font-size:12.5px;color:var(--muted)}
+.schedlegend b{color:var(--ink);font-weight:600}
+.dcards{display:none}
+.dcard{border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin-bottom:10px;background:rgba(255,255,255,.015)}
+.dcard.today{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.dhead{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+.dhead .dname{font-size:16px;font-weight:600;color:var(--heading)}
+.dhead .ddate{font-size:13px;color:var(--muted)}
+.dhead .chip{margin-left:auto;font-size:11px;font-weight:600;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 8px}
+.drow{display:grid;grid-template-columns:58px 1fr;gap:10px;align-items:baseline;padding:5px 0;border-top:1px solid var(--line);line-height:1.45}
+.drow:first-of-type{border-top:none}
+.drow .dlab{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+.drow .dval{font-size:14px}
+.drow .a{font-weight:600;color:var(--ink)}
+.drow .f{color:var(--ink)}
+.drow .r{color:var(--muted)}
+.drow .sep{color:#5b6e88;padding:0 4px}
+.drow.l .dlab{color:#a9d69a}
+.drow.kp .dlab{color:#e0d47c}
+.drow.d .dlab{color:#c3ccd6}
+.drow.bk .dlab{color:#eebd97}
+.drow.nt .dlab{color:#b5c2d4}
+@media (max-width:999px){
+ body.sched-page .wrap{padding:12px}
+ body.sched-page .card{padding:16px 14px}
+ .tscroll{display:none}
+ .dcards{display:block}
+ .schedweek{font-size:17px}
+}
+@media (min-width:1000px){
+ .schedlegend{display:none}
+}
 .ordow{margin:12px 0 2px;font-weight:600;color:var(--heading);font-size:14px}
 .schedcase{margin:2px 0;font-size:14px}
 .schedcase.none{color:var(--muted)}
